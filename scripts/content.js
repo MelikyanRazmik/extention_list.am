@@ -2,13 +2,15 @@ const refreshIcons = document.querySelectorAll('[original-title="Փոփոխել"
 
 let i = +localStorage.getItem('count') || 0;
 const update = () => {
-  if (refreshIcons.length && i < refreshIcons.length) {
+  console.log(refreshIcons.length, 55555, i);
+  if (refreshIcons.length && i <= refreshIcons.length) {
     if (+refreshIcons.length === +i) {
       localStorage.removeItem('count');
       return;
     }
 
-    refreshIcons[i].click();
+    if (+refreshIcons.length !== +i)
+      refreshIcons[i].click();
   }
 
   const button = document.querySelector('.btncancel');
